@@ -1,0 +1,1 @@
+In this project im trying to code a simple rock,paper,scissors game in JavaScript
