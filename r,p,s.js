@@ -2,7 +2,7 @@ function getComputerChoice() {
     let chars = [ "Rock", "Paper", "Sciccors" ];
     return chars[ Math.floor(Math.random() * chars.length)];
  }
- let choicecomputer = getComputerChoice();
+ 
 
  const prompt = require('prompt-sync')();
  
@@ -14,8 +14,7 @@ function getComputerChoice() {
       entryf();
     }
     else if(entry == "rock" || entry == "scissors" || entry == "paper"){
-      playRound(choicecom,entry)
-      return [choicecom,entry];
+      return entry;
     }
             }
  
@@ -25,23 +24,31 @@ function getComputerChoice() {
   let rock = "rock";
   let paper = "paper";
   let scissors = "scissors";
-  
-  if(comchoice == rock && plchoice == paper ){
+
+  if(comchoice === rock && plchoice === paper ){
 
   }
-  else if(comchoice == rock && plchoice == scissors ){
-
+  else if(comchoice === rock && plchoice === scissors ){
   }
-  else if(comchoice == plchoice){
-
+  else if(comchoice === paper && plchoice === scissors ){
+  }
+  else if(comchoice === paper && plchoice === rock ){
+  }
+  else if(comchoice === scissors && plchoice === paper ){
+  }
+  else if(comchoice === scissors && plchoice === rock ){
+  }
+  else if(comchoice === plchoice){
   }
  }
 function game(){
- let [comchoice,plchoice] = entryf(choicecomputer);
+ 
  for(let i = 0; i<5;i++){
-  playRound(comchoice,plchoice);
+  let choicecomputer = getComputerChoice();
+  let plchoice = entryf(choicecomputer);
+  playRound(choicecomputer,plchoice);
 
  }
 }
  
-
+game();
