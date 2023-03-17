@@ -17,8 +17,6 @@ function getComputerChoice() {
   let rock = "rock";
   let paper = "paper";
   let scissors = "scissors";
-  let counterpl = 0;
-  let countercom = 0;
   if(comchoice === rock && plchoice === paper ){
     console.log("Computer: Rock  Player: Paper");
     return true;}
@@ -43,24 +41,32 @@ function getComputerChoice() {
  }
  
 function game(){
- 
+  let counterpl = 0;
+  let countercom = 0;
  for(let i = 0; i<5;i++){
   let choicecomputer = getComputerChoice();
   let plchoice = entryf();
+  let resultround;
   if(plchoice == "rock" || plchoice == "scissors" || plchoice == "paper"){
-  let resultround = playRound(choicecomputer,plchoice);
-  if(resultround == true){
-    console.log("You won! The new score is: ");
-  }
-  else if(resultround == false){
-    console.log("You lost! The new score is: ");
-  }
-  else{
-    console.log("Draw! The score is: ");
-  }
+  resultround = playRound(choicecomputer,plchoice);
+
   }
   else if(plchoice !== "rock" && plchoice !== "scissors" && plchoice !== "paper"){
+    console.log("WRONG INPUT")
     plchoice = entryf();
+    resultround = playRound(choicecomputer,plchoice);
+
+  }
+  if(resultround == true){
+    counterpl++;
+    console.log("You won! The new score is: \n Player: " +counterpl + " Computer: "+countercom);
+  }
+  else if(resultround == false){
+    countercom++;
+    console.log("You lost! The new score is: \n Player: " +counterpl + " Computer: "+countercom );
+  }
+  else{
+    console.log("Draw! The score is: \n Player: " +counterpl + " Computer: "+countercom );
     
   }
  }
